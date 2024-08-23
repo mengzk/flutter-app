@@ -1,0 +1,79 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+}
+
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
+if (flutterVersionCode == null) {
+    flutterVersionCode = '1'
+}
+
+def flutterVersionName = localProperties.getProperty('flutter.versionName')
+if (flutterVersionName == null) {
+    flutterVersionName = '1.0.1'
+}
+
+android {
+    namespace "com.mon.step"
+    compileSdk 34
+    ndkVersion '25.2.9519653'
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.mon.step"
+        // You can update the following values to match your application needs
+        // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
+        minSdkVersion 21//flutter.minSdkVersion
+        targetSdkVersion 33//flutter.targetSdkVersion
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+
+        multiDexEnabled true
+    }
+
+    signingConfigs {
+        release {
+            storeFile rootProject.file("app.keystore")
+            storePassword "ak123321"
+            keyAlias "ak123321"
+            keyPassword "ak123321"
+        }
+        debug {
+            storeFile rootProject.file("app.keystore")
+            storePassword "ak123321"
+            keyAlias "ak123321"
+            keyPassword "ak123321"
+        }
+
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    dependencies {
+        implementation "androidx.core:core-splashscreen:1.0.0"
+        implementation 'com.amap.api:location:6.1.0'
+    }
+}
+
+flutter {
+    source '../..'
+}
