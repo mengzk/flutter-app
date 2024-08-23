@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 import 'my_transformer.dart';
-import 'result.dart';
 
 /// Author: Meng
 /// Date: 2024-08-23
@@ -17,7 +17,10 @@ class Client {
       receiveTimeout: const Duration(seconds: 60),
     ));
 
-    dio.interceptors.add(LogInterceptor(requestBody: true));
+    dio.interceptors.add(LogInterceptor(
+        requestBody: true,
+        responseBody: true,
+        logPrint: (o) => debugPrint(o.toString())));
     dio.transformer = MyTransformer();
     return dio;
   }
