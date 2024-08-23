@@ -8,7 +8,7 @@ class PDFPage extends StatefulWidget {
   PDFPage(
     this.path, {
     super.key,
-    this.title = "查看发票",
+    this.title = "查看文档",
   });
 
   @override

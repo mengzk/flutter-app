@@ -20,14 +20,6 @@ class Launch extends StatelessWidget {
       color: Colors.white,
       home: const LaunchPage(),
     );
-    // return MaterialApp(
-    //   theme: ThemeData(
-    //     colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-    //     useMaterial3: true,
-    //   ),
-    //   color: Colors.white,
-    //   home: const LaunchPage(),
-    // );
   }
 }
 
