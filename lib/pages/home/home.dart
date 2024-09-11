@@ -17,6 +17,12 @@ class HomePage extends StatefulWidget {
 
 class _HomeState extends State<HomePage> {
   @override
+  void initState() {
+    super.initState();
+    print('home-------> initState');
+  }
+
+  @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(

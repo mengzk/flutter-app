@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/common/color.dart';
-import 'package:flutter_app/configs/constant.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'home/home.dart';
@@ -13,27 +12,14 @@ import 'push/push.dart';
 /// Desc:
 ///
 
-class BottomTab extends StatelessWidget {
+class BottomTab extends StatefulWidget {
   const BottomTab({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('BottomTab'),
-      ),
-    );
-  }
+  State<BottomTab> createState() => _TabState();
 }
 
-class TabPage extends StatefulWidget {
-  const TabPage({super.key});
-
-  @override
-  State<TabPage> createState() => _TabState();
-}
-
-class _TabState extends State<TabPage> {
+class _TabState extends State<BottomTab> {
   final List<Widget> _pageList = [
     const HomePage(),
     const SizedBox.shrink(),
@@ -63,10 +49,6 @@ class _TabState extends State<TabPage> {
 
   @override
   Widget build(context) {
-    var screen = MediaQuery.of(context).size;
-    Constants.screenWidth = screen.width;
-    Constants.screenHeight = screen.height;
-
     return Scaffold(
         body: IndexedStack(
           index: _curIndex,
@@ -99,16 +81,10 @@ class _TabState extends State<TabPage> {
             unselectedItemColor: Colors.grey,
             type: BottomNavigationBarType.fixed,
             items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.mail_lock), label: "首页"),
+              BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "发布"),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.home_max_rounded),
-                  activeIcon: Icon(Icons.home_max_outlined),
-                  label: ""),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.push_pin_rounded), label: ""),
-              BottomNavigationBarItem(
-                  icon: Icon(Icons.my_library_add),
-                  activeIcon: Icon(Icons.my_library_add_outlined),
-                  label: "")
+                  icon: Icon(Icons.people_outline), label: "我的")
             ],
             onTap: (int index) {
               setState(() {

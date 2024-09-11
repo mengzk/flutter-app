@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/common/color.dart';
-import 'package:flutter_app/configs/constant.dart';
 import 'package:flutter_app/utils/log/Log.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -56,10 +55,6 @@ class _MainTabState extends State<MainTabPage> {
 
   @override
   Widget build(context) {
-    var screen = MediaQuery.of(context).size;
-    Constants.screenWidth = screen.width;
-    Constants.screenHeight = screen.height;
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('底部Tab示例'),

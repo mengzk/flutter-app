@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/pages/bottom_tab2.dart';
 import 'package:get/route_manager.dart';
 
+import 'configs/constant.dart';
 import 'pages/bottom_tab.dart';
 
 void main() {
@@ -41,12 +43,18 @@ class _LaunchState extends State<LaunchPage> {
   }
 
   void gotoHome() {
+    // Navigator.of(context).pushReplacement(
+    //     MaterialPageRoute(builder: (context) => const MainTabPage()));
     Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => const BottomTab()));
   }
 
   @override
   Widget build(context) {
+    var screen = MediaQuery.of(context).size;
+    Constants.screenWidth = screen.width;
+    Constants.screenHeight = screen.height;
+
     return SizedBox(
       width: double.infinity,
       height: double.infinity,

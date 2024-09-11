@@ -17,6 +17,12 @@ class MyPage extends StatefulWidget {
 
 class _MyState extends State<MyPage> {
   @override
+  void initState() {
+    super.initState();
+    print('my-------> initState');
+  }
+
+  @override
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
