@@ -3,12 +3,19 @@ import 'package:flutter/material.dart';
 /// Author: Meng
 /// Date: 2024-08-22
 /// Modify: 2024-08-22
-/// Desc:
+/// Desc: 首页
 ///
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<StatefulWidget> createState() {
+    return _HomeState();
+  }
+}
+
+class _HomeState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

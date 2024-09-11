@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class PDFPage extends StatefulWidget {
-  String title;
-  String path;
+  final String title;
+  final String path;
 
-  PDFPage(
+  const PDFPage(
     this.path, {
     super.key,
     this.title = "查看文档",
@@ -18,7 +18,7 @@ class PDFPage extends StatefulWidget {
 class _PDFPageState extends State<PDFPage> {
   String headerText = '';
   String url = '';
-  String _destPath = '';
+  // String _destPath = '';
 
   @override
   void initState() {

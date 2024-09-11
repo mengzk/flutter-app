@@ -57,11 +57,6 @@
         </intent>
     </queries>
 
-    <queries>
-        <package android:name="com.eg.android.AlipayGphone" /> <!-- 支付宝 -->
-        <package android:name="hk.alipay.wallet" /> <!-- AlipayHK -->
-    </queries>
-
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
@@ -96,7 +91,7 @@
             android:value="2" />
 
         <!-- 配置定位Service -->
-        <service android:name="com.amap.api.location.APSService" />
+        <!-- <service android:name="com.amap.api.location.APSService" /> -->
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility?hl=en and

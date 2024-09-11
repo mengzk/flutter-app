@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebPage extends StatefulWidget {
-  String title = '';
-  String path;
+  final String title;
+  final String path;
 
-  WebPage(
+  const WebPage(
     this.path, {
     super.key,
     this.title = '',
