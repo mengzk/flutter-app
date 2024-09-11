@@ -7,7 +7,7 @@ import 'package:flutter_app/modules/network/client.dart';
 /// Author: Meng
 /// Date: 2024-08-23
 /// Modify: 2024-08-23
-/// Desc:
+/// Desc: 文件上传/下载
 ///
 class FileTask {
   ///
@@ -24,7 +24,10 @@ class FileTask {
       final result = response.data;
       print(result);
       if (result != null) {
-      } else {}
+        //
+      } else {
+        // 提示报错信息
+      }
     } on DioException catch (e) {
       return Client.err(e);
     }
@@ -43,7 +46,9 @@ class FileTask {
       final result = response.data;
 
       if (result != null) {
-      } else {}
+      } else {
+        // 提示报错信息
+      }
     } on DioException catch (e) {
       return Client.err(e);
     }
@@ -85,7 +90,9 @@ class FileTask {
           .post(url, data: formData, options: Options(headers: headers));
       final result = response.data;
       if (result != null) {
-      } else {}
+      } else {
+        // 提示报错信息
+      }
     } on DioException catch (e) {
       return Client.err(e);
     }

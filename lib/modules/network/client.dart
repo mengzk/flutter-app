@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
+import 'interceptor/log_interceptor.dart';
 import 'my_transformer.dart';
 
 /// Author: Meng
@@ -13,15 +14,22 @@ class Client {
   static Dio dio() {
     Dio dio = Dio(BaseOptions(
       baseUrl: "", //
+      headers: {'Content-Type': 'application/json'},
       connectTimeout: const Duration(seconds: 60),
       receiveTimeout: const Duration(seconds: 60),
+      sendTimeout: const Duration(seconds: 60),
+      extra: {'cancelDuplicatedRequest': true}, // 是否取消重复请求
     ));
 
+    // 自定义转换器
+    // dio.transformer = MyTransformer();
+
+    // 添加拦截器
     dio.interceptors.add(LogInterceptor(
         requestBody: true,
         responseBody: true,
         logPrint: (o) => debugPrint(o.toString())));
-    dio.transformer = MyTransformer();
+    // dio.interceptors.add(const Log3Interceptor());
     return dio;
   }
 

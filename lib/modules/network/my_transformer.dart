@@ -1,7 +1,6 @@
-
 import 'package:dio/dio.dart';
 
-/// 
+/// 自定义转换器
 class MyTransformer extends BackgroundTransformer {
   @override
   Future<String> transformRequest(RequestOptions options) async {

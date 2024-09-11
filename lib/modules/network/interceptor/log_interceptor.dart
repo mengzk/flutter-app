@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 
 /// 日志
-class LogInterceptor extends Interceptor {
-  const LogInterceptor();
+class Log3Interceptor extends Interceptor {
+  const Log3Interceptor();
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {

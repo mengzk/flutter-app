@@ -28,7 +28,9 @@ class Request {
         } else if (code != '1') {
           // 提示报错信息
         }
-      } else {}
+      } else {
+        // 提示报错信息
+      }
     } on DioException catch (e) {
       return Client.err(e);
     }
